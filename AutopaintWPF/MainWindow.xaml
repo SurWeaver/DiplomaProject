@@ -1,0 +1,173 @@
+﻿<Window x:Class="AutopaintWPF.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"    
+        Background="{DynamicResource MaterialDesignBackground}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+		xmlns:local="clr-namespace:AutopaintWPF"
+		mc:Ignorable="d"
+		Title="Рабочее окно" Height="450" Width="800"
+        ResizeMode="CanMinimize"
+		Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--Таблица и поля для изображения-->
+        <StackPanel Name="MainPanel"
+					Grid.Row="0"
+					Grid.Column="1"
+					Grid.ColumnSpan="3"
+					Orientation="Horizontal">
+            <DataGrid Name="DataGrid"
+                      MaxHeight="300"
+                      MaxWidth="450"
+					  Margin="10"
+				      ColumnWidth="Auto"
+				      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+				      IsReadOnly="True"
+				      AutoGenerateColumns="False"
+				      AreRowDetailsFrozen="True"
+				      CanUserResizeRows="False"
+                      CanUserResizeColumns="False"
+				      SelectionMode="Single"
+				      CanUserReorderColumns="False"
+                      SelectionChanged="DataGrid_SelectionChanged"/>
+            
+        </StackPanel>
+        
+        <!--Правая панель-->
+        <StackPanel
+            Grid.Row="0"
+			Grid.Column="4">
+            <Label Content="Выберите таблицу:"/>
+            <ComboBox Name="ComboBoxTables"
+					  Grid.Row="0"
+					  Grid.Column="4"
+					  Margin="5"
+					  Height="30"
+					  VerticalAlignment="Top"
+					  SelectionChanged="ComboBoxTables_SelectionChanged"/>
+            <Border Name="Border_color"
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Width="168"
+                    Height="285"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Center"/>
+            <Image Name="DataImage"
+                   Margin="5"
+                   MaxHeight="200"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"/>
+            <TextBlock Name="TextBlock_car_parts"
+                       Margin="10"
+                       TextWrapping="Wrap"
+                       MaxWidth="300"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"/>
+        </StackPanel>
+        
+        <!--Лого-->
+        <Image Source="Images/Logo.png"
+			   Grid.Column="0"
+			   Grid.Row="1"
+			   HorizontalAlignment="Left"/>
+
+        <!--Левая панель с кнопками-->
+        <StackPanel
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left">
+            <Button Name="Button_add"
+				ToolTip="Добавить"
+				Margin="0, 10"
+                Height="50"
+                Click="Button_add_Click">
+                <Image Source="Images/Add.png"/>
+            </Button>
+            <Button Name="Button_change"
+				ToolTip="Изменить"
+				Margin="0, 10"
+                Height="50"
+                Click="Button_change_Click">
+                <Image Source="Images/Change.png"/>
+            </Button>
+            <Button Name="Button_delete"
+				ToolTip="Удалить"
+				Margin="0, 10"
+                Height="50"
+				Click="Button_delete_Click">
+                <Image Source="Images/Delete.png"/>
+            </Button>
+            <Button Name="Button_update"
+				ToolTip="Обновить"
+				Margin="0, 10"
+                Height="50"
+				Click="Button_update_Click">
+                <Image Source="Images/Update.png"/>
+            </Button>
+            <Button Name="Button_image_change"
+				ToolTip="Изменить изображение"
+				Margin="0, 10"
+                Height="50"
+		        Click="Button_image_change_Click">
+                <Image Source="Images/Image_change.png"/>
+            </Button>
+        </StackPanel>
+
+        <!--Поиск-->
+        <StackPanel HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+            <Label Content="Поиск:"
+                   VerticalAlignment="Center"/>
+            <TextBox Name="TextBox_search"
+                     VerticalContentAlignment="Center"
+                     Width="200"
+                     Margin="15"
+                     TextChanged="TextBox_search_TextChanged"/>
+
+
+        </StackPanel>
+
+        <!--Выход-->
+        <StackPanel HorizontalAlignment="Center"
+					Grid.Column="2"
+					Grid.Row="1"
+					Orientation="Horizontal">
+            <Button Name="Button_exit_account"
+					ToolTip="Выйти из аккаунта"
+                    Margin="0, 0, 20, 0"
+                    Height="50"
+					Click="Button_exit_account_Click">
+                <Image Source="Images/Exit_account.png"/>
+            </Button>
+            <Button Name="Button_exit_program"
+					ToolTip="Выйти из программы"
+                    Height="50"
+					Click="Button_exit_program_Click">
+                <Image Source="Images/Exit_program.png"/>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Window>

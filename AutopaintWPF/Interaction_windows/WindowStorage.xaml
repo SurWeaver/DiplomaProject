@@ -1,0 +1,104 @@
+﻿<Window x:Class="AutopaintWPF.WindowStorage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutopaintWPF"
+        mc:Ignorable="d"
+        Title="Склад" Height="236" Width="400"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Название продукции:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Grid.Row="0"
+               Grid.Column="0"/>
+        <ComboBox Name="ComboBox_product_name"
+                 Margin="5"
+                 HorizontalAlignment="Left"
+                 MinWidth="100"
+                 Grid.Row="0"
+                 Grid.Column="1"/>
+
+       
+        <Label Content="Количество продукции:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Grid.Row="1"
+               Grid.Column="0"/>
+        <TextBox Name="TextBox_product_amount"
+                 MaxLength="20"
+                 VerticalContentAlignment="Center"
+                 Margin="5"
+                 HorizontalAlignment="Left"
+                 MinWidth="100"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 PreviewTextInput="TextBox_amount_PreviewTextInput"/>
+
+        <Label Content="Поставщик:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Grid.Row="2"
+               Grid.Column="0"
+               PreviewTextInput="TextBox_amount_PreviewTextInput"/>
+        <ComboBox Name="ComboBox_supplier"
+                 VerticalContentAlignment="Center"
+                 Margin="5"
+                 HorizontalAlignment="Left"
+                 MinWidth="100"
+                 Grid.Row="2"
+                 Grid.Column="1"/>
+
+        <Label Content="Средняя закупочная цена:"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right"
+               Grid.Row="3"
+               Grid.Column="0"/>
+        <TextBox Name="TextBox_average_purchase_price"
+                 MaxLength="20"
+                 VerticalContentAlignment="Center"
+                 Margin="5"
+                 HorizontalAlignment="Left"
+                 MinWidth="100"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 PreviewTextInput="TextBox_amount_PreviewTextInput"/>
+
+        <StackPanel
+            Grid.Row="6"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Button
+                Name="Button_accept"
+                Margin="5"
+                Content="Принять"
+                Click="Button_accept_Click"/>
+            <Button
+                Name="Button_reset"
+                Margin="5"
+                Content="Сброс"
+                Click="Button_reset_Click"/>
+            <Button
+                Name="Button_cancel"
+                Margin="5"
+                Content="Отмена"
+                Click="Button_cancel_Click"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
